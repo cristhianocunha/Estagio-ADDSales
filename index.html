@@ -10,6 +10,7 @@
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="custom.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -27,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-6" id="form-container" >
 
-                    <form method="post"  nome="step_1" id="step_1" class="form-step"  >
+                    <form method="POST"  nome="step_1" id="step_1" class="form-step" action="backend.php" >
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="panel-title">
@@ -39,7 +40,7 @@
                                     <div class="row form-group">
                                         <div class="col-lg-6">
                                             <label>Nome Completo</label>
-                                            <input class="form-control" type="text" name="nome">
+                                            <input class="form-control" type="text" name="nome" >
                                         </div>
 
                                         <div class="col-lg-6">
@@ -61,14 +62,14 @@
                                     </div>
 
                                     <div>
-                                        <button name="submit1" id="submit1" type="submit" class="btn btn-lg btn-info next-step ">Próximo Passo</button>
+                                        <button name="submit1" id="submit1" type="submit" class="btn btn-lg btn-info btn-success next-step ">Próximo Passo</button>
                                     </div>
                                 </fieldset>
                             </div>
                         </div>
                     </form>
                     
-                    <form id="step_2" class="form-step" style="display:none" method="POST" >
+                    <form id="step_2" class="form-step" style="display:none" method="POST" action="backend.php" >
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="panel-title">
@@ -100,42 +101,43 @@
                                     </div>
 
                                     <div>
-                                        <button id="submit2" type="submit" class="btn btn-lg btn-info next-step ">Enviar</button>
+                                        <button id="submit2" type="submit" class="btn btn-lg btn-info next-step btn-success ">Enviar</button>
                                     </div>
+                                    
                                 </fieldset>
                             </div>
                         </div>
-                    </form>
+                        
+                    </form >
 
-                    <div id="step_sucesso" class="form-step" style="display:none" >
+                    <div id="step_sucess" class="form-step form" style="display:none"  >
+                                                                                                                         
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="panel-title">
                                     Obrigado pelo cadastro!
+                                    
                                 </div>
                             </div>
                             <div class="panel-body">
                                 Em breve você receberá uma ligação com mais informações!
+                                
+                                
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6" >
                     <h1>Chamada interessante para o produto</h1>
                     <h2>Mais uma informação relevante</h2>
+                    
                 </div>
             </div>
         </div>
-        
-        <script>
-            $(function () {
-                $('.next-step').click(function (event) {
-                    event.preventDefault();
-                    $(this).parents('.form-step').hide().next().show();
-                });
-            });
+              
 
-          
-        </script>       
+                            
+
     </body>
 </html>
