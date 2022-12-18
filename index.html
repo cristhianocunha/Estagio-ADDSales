@@ -11,7 +11,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="custom.js"></script>
+        <script src="scripts/custom.js"></script>
     </head>
     <body>
         <div class="container">
@@ -93,12 +93,35 @@
                                                 <option value="nort">Norte</option>
                                             </select>
                                         </div>
-
+                                        <script>function getType() {
+                                            var x = document.getElementById("regiao").value;
+                                            var items;
+                                            if (x === "sul") {
+                                              items = ["Porto Alegre", "Curitiba"];
+                                            } else if (x === "sude") {
+                                              items = ["São Paulo", "Rio de Janeiro", "Belo Horizonte"]
+                                            } else if (x === "cent"){
+                                                items = ["Brasília"]
+                                            } else if (x === "nord"){
+                                                items = ["Salvador", "Recife"]
+                                            } else if (x === "nort"){
+                                                items = ["Não possui disponibilidade"]
+                                            }
+                                            var str = ""
+                                            for (var item of items) {
+                                              str += "<option>" + item + "</option>"
+                                            }
+                                            document.getElementById("unidade").innerHTML = str;
+                                          }
+                                         document.getElementById("regiao").addEventListener("click", getType)
+                                        
+                                        </script>
+                                        
                                         <div class="col-lg-6">
                                             <label>Unidade</label>
                                             <select class="form-control" id="unidade">
                                                 <option value="">Selecione a unidade mais próxima</option>
-                                                <option value="sul">Sul</option>    
+                                                    
                                             </select>
                                         </div>
                                     </div>
