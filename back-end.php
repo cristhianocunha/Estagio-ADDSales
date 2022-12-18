@@ -23,16 +23,15 @@ $idade = 0;
 // calculando pontos da idade
 $data = new DateTime($dataNasc);
 $idade = $data->diff( new DateTime(date('Y-m-d')));
+// tranformando date em inteiro
 
-$idade = $idade->format('Y');
+$idade = idate($idade->format('Y'));
 
 
-if ($idade < 18 ){
+if ($idade < 18 or $idade >= 100){
     $ponts -= 5;
-}elseif($idade >= 40  && $idade <= 99) {
+}elseif($idade <= 99 and $idade >= 40 ) {
     $ponts -= 3;
-}elseif($idade <= 100){
-    $ponts -= 5;
 }
 
 

@@ -30,7 +30,7 @@ $(document).ready(function() {
     
         $.ajax({
             type: "POST",
-            url: "back-end.php",
+            url: "./back-end.php",
             data,
         cache: false,
         success: function(data) {
