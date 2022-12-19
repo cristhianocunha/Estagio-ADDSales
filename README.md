@@ -14,3 +14,4 @@ Usei XAMPP para criar o servidor PHP, essa foram as versions
 * Apache 2.4.53
 * MariaDB 10.4.24
 * phpMyAdmin 5.2.0
+* jquery-3.5.1.
