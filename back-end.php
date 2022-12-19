@@ -1,8 +1,8 @@
 <?php
 
 /*
-* 
-* capturando dados do fron-end form
+* Capturando dados do fron-end via Ajax
+* Enviando para banco de dados
 */
 
 
@@ -20,26 +20,24 @@ $x = $data['regiao'];
 $dataNasc = $data['data_nascimento'];
 $ponts = 10;
 $idade = 0;
-// calculando pontos da idade
-$data = new DateTime($dataNasc);
-$idade = $data->diff( new DateTime(date('Y-m-d')));
-// tranformando date em inteiro
+// calculando idade
 
-$idade = idate($idade->format('Y'));
+$data = $dataNasc;
+list($ano, $mes, $dia) = explode('-', $data);
+$hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+$nascimento = mktime( 0, 0, 0, $mes, $dia, $ano);
+$idade = floor((((($hoje - $nascimento) / 60) / 60) / 24) / 365.25);
+echo $idade;
 
-
+// calculando o pontos com idade
 if ($idade < 18 or $idade >= 100){
     $ponts -= 5;
-}elseif($idade <= 99 and $idade >= 40 ) {
+}elseif($idade >= 40 && $idade <= 99 ) {
     $ponts -= 3;
 }
 
 
-
-
 // calculando pontuação da regiao
-
-
 
 switch ($x){
     case "sul":

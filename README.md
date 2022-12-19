@@ -10,7 +10,7 @@ Fiz conexão com um banco da Dados MariaDB Local, usei PHP PDO para conexão. Os
 
 ## Ferramentas
 Usei XAMPP para criar o servidor PHP, essa foram as versions 
-* PHP 7.4.29 , 8.0.19 , 8.1.6
+* PHP Version 8.0.19
 * Apache 2.4.53
 * MariaDB 10.4.24
 * phpMyAdmin 5.2.0
