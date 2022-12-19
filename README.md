@@ -5,7 +5,7 @@ Fiz um Ajax no arquivo custom.js que recebe os paramentros do from-end e manda v
 
 
 ## Banco de dados
-Fiz conexão com PHP PDO para conexão, banco da Dados MariaDB Local. Os arquivos db.php realizar a conexão e db.slq é "estrutura do banco"
+Fiz conexão com PHP PDO para conexão, banco da Dados MariaDB Local. Os arquivos db.php realizam a conexão e db.slq é "estrutura do banco"
 
 ## Ferramentas
 Usei XAMPP para criar o servidor PHP, essa foram as versions 
