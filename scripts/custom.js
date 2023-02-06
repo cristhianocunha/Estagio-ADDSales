@@ -24,18 +24,21 @@ $(document).ready(function() {
         console.log(data);
 
         if(nome==''||data_nascimento==''||email==''||telefone=='' || regiao==''|| unidade=='') {
-            alert("Please fill all fields.");
+            alert("por.");
             return false;
         }
     
         $.ajax({
             type: "POST",
+            // url: 'http://api-bra1.addsales.com/join-asbr/ti/lead?token=ab565c3c42d7a5253285362dbb3dee40',
             url: "./back-end.php",
-            data,
+            data,   
         cache: false,
         success: function(data) {
             alert(data);
         },
+
+        
         error: function(xhr, status, error) {
             console.error(xhr);
     }
