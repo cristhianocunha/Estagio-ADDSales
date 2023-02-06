@@ -21,19 +21,12 @@ $data['score'] = 10;
 $x = $data['regiao'];
 $dataNasc = $data['data_nascimento'];
 $score = 10;
-$idade = 0;
+$idade = CalculandoIdade($dataNasc);
 
 // calculando idade
-function CalculandoIdade() 
-{
-    $data = $dataNasc;
-    list($ano, $mes, $dia) = explode('-', $data);
-    $hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
-    $nascimento = mktime( 0, 0, 0, $mes, $dia, $ano);
-    $idade = floor((((($hoje - $nascimento) / 60) / 60) / 24) / 365.25);
-    echo $idade;
-    return
-}
+
+var_dump($idade);
+
 // calculando o pontos com idade
 if ($idade < 18 or $idade >= 100){
     $score -= 5;
@@ -62,6 +55,14 @@ switch ($x){
         
 }
 
+function CalculandoIdade($dataNasc) 
+{
+    list($ano, $mes, $dia) = explode('-', $dataNasc);
+    $hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+    $nascimento = mktime( 0, 0, 0, $mes, $dia, $ano);
+    $idade = floor((((($hoje - $nascimento) / 60) / 60) / 24) / 365.25);
+    return $idade;
+}
 
 
 
@@ -89,7 +90,8 @@ $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         $retorna = ['status' => false, 'msg' => "<p style='color: #f00;'>Erro: Usuário não cadastrado com sucesso!</p>"];
     }    
 
-    
+
+
 // // // URL de SUA API
 // // $url = 'http://api-bra1.addsales.com/join-asbr/ti/lead?token=ab565c3c42d7a5253285362dbb3dee40';
 // // // cria um resource cURL
