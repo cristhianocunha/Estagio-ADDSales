@@ -86,26 +86,26 @@
                                             <label>Região</label>
                                             <select class="form-control" id="regiao">
                                                 <option value="">Selecione a sua região</option>
-                                                <option value="sul">Sul</option>
-                                                <option value="sude">Sudeste</option>
-                                                <option value="cent">Centro-Oeste</option>
-                                                <option value="nord">Nordeste</option>
-                                                <option value="nort">Norte</option>
+                                                <option value="Sul">Sul</option>
+                                                <option value="Sudeste">Sudeste</option>
+                                                <option value="Centro-Oeste">Centro-Oeste</option>
+                                                <option value="Nordeste">Nordeste</option>
+                                                <option value="Norte">Norte</option>
                                             </select>
                                         </div>
                                         <script>function getType() {
                                             var x = document.getElementById("regiao").value;
                                             var items;
-                                            if (x === "sul") {
+                                            if (x === "Sul") {
                                               items = ["Porto Alegre", "Curitiba"];
-                                            } else if (x === "sude") {
+                                            } else if (x === "Sudeste") {
                                               items = ["São Paulo", "Rio de Janeiro", "Belo Horizonte"]
-                                            } else if (x === "cent"){
+                                            } else if (x === "Centro-Oeste"){
                                                 items = ["Brasília"]
-                                            } else if (x === "nord"){
+                                            } else if (x === "Nordeste"){
                                                 items = ["Salvador", "Recife"]
-                                            } else if (x === "nort"){
-                                                items = ["Não possui disponibilidade"]
+                                            } else if (x === "Norte"){
+                                                items = ["INDISPONÍVEL"]
                                             }
                                             var str = ""
                                             for (var item of items) {
