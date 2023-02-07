@@ -21,39 +21,47 @@ $data['score'] = 10;
 $x = $data['regiao'];
 $dataNasc = $data['data_nascimento'];
 $score = 10;
+
 $idade = CalculandoIdade($dataNasc);
+$score = calculandoPontosIdade($idade, $score) - calculandoRegiao($x, $score);
+$score = abs($score);
 
-// calculando idade
-
-var_dump($idade);
-
-// calculando o pontos com idade
-if ($idade < 18 or $idade >= 100){
-    $score -= 5;
-}elseif($idade >= 40 && $idade <= 99 ) {
-    $score -= 3;
-}
 
 
 // calculando pontuação da regiao
-
-switch ($x){
-    case "sul":
-        $score -= 4;
-        break;
-    case "sude":
-        $score -= 1;
-        break;
-    case "cent":
-        $score -= 3;
-        break;
-    case "nord":
-        $score -= 2;
-        break;
-    case "nort":
-        $score -= 5;
-        
+function calculandoRegiao($x, $score)
+{
+    switch ($x){
+        case "sul":
+            $score -= 4;
+            break;
+        case "sude":
+            $score -= 1;
+            break;
+        case "cent":
+            $score -= 3;
+            break;
+        case "nord":
+            $score -= 2;
+            break;
+        case "nort":
+            $score -= 5;
+            
+    }
+    return $score;
 }
+// calculando o pontos com idade
+function calculandoPontosIdade($idade, $score){
+
+    if ($idade < 18 or $idade >= 100){
+    $score -= 5;
+    }elseif($idade >= 40 && $idade <= 99 ) {
+    $score -= 3;
+    }
+    return $score;
+}
+
+// calculando idade
 
 function CalculandoIdade($dataNasc) 
 {
