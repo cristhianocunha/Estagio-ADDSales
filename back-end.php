@@ -72,7 +72,11 @@ function CalculandoIdade($dataNasc)
     return $idade;
 }
 
-
+function enviarLeadApi(){
+    include_once "db.php";
+    include 'enviar.php';
+    executar();
+}
 
 // return json_encode($data);
 echo json_encode($data);
@@ -100,7 +104,4 @@ $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         $retorna = ['status' => false, 'msg' => "<p style='color: #f00;'>Erro: Usuário não cadastrado com sucesso!</p>"];
     }    
 
-function enviarLeadApi(){
-    include 'enviar.php';
-}
 
