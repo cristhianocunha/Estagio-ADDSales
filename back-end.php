@@ -5,8 +5,6 @@
 * Enviando para banco de dados
 */
 
-
-
 // POST Data
 $data['nome'] = $_POST['nome'];
 $data['data_nascimento'] = $_POST['data_nascimento'];
@@ -72,15 +70,11 @@ function CalculandoIdade($dataNasc)
     return $idade;
 }
 
-function enviarLeadApi(){
-    include_once "db.php";
-    include 'enviar.php';
-    executar();
-}
+
 
 // return json_encode($data);
 echo json_encode($data);
-include_once "db.php";
+include "db.php";
 
 
 $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -98,8 +92,7 @@ $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     $cad_usuario->execute();
 
     if($cad_usuario->rowCount()){
-        $retorna = ['status' => true, 'msg' => "<p style='color: green;'>Usuário cadastrado com sucesso!</p>"];
-        enviarLeadApi();
+        $retorna = ['status' => true, 'msg' => "<p style='color: green;'>Usuário cadastrado com sucesso!</p>"];       
     }else{
         $retorna = ['status' => false, 'msg' => "<p style='color: #f00;'>Erro: Usuário não cadastrado com sucesso!</p>"];
     }    

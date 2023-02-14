@@ -1,9 +1,11 @@
 <?php 
 
+executar();
+
 
 
 function buscarLead(){
-    include_once "db.php";
+    include "db.php";
     return $conn->query( "SELECT * FROM `leads` WHERE enviado = 'no' limit 1 ")->fetch(PDO::FETCH_ASSOC);
 } 
 
