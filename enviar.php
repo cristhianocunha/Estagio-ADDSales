@@ -1,17 +1,15 @@
 <?php 
 
-executar();
+include_once "db.php";
+executar($conn);
 
 
 
-function buscarLead(){
-    include "db.php";
+function buscarLead($conn){
     return $conn->query( "SELECT * FROM `leads` WHERE enviado = 'no' limit 1 ")->fetch(PDO::FETCH_ASSOC);
 } 
 
-function updateLead($id){
-
-    include "db.php";
+function updateLead($id, $conn){      
     $query = $conn->prepare("UPDATE leads SET enviado = :enviado WHERE id = :id");
     $query->execute(array(
         ':id' => $id,
@@ -31,8 +29,8 @@ function enviarParaApi($data){
 }
 
 
-function executar(){
-    $row = buscarLead();
+function executar($conn){
+    $row = buscarLead($conn);
 
     if (!$row)
     {
@@ -43,7 +41,7 @@ function executar(){
         $data = json_encode($row);
         $rescultado = enviarParaApi($data);
             if ($rescultado){
-                updateLead($leadid);
+                updateLead($leadid, $conn);
             }
         
     }

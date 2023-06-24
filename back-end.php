@@ -92,7 +92,8 @@ $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     $cad_usuario->execute();
 
     if($cad_usuario->rowCount()){
-        $retorna = ['status' => true, 'msg' => "<p style='color: green;'>Usuário cadastrado com sucesso!</p>"];       
+        $retorna = ['status' => true, 'msg' => "<p style='color: green;'>Usuário cadastrado com sucesso!</p>"];
+        include_once "enviar.php";       
     }else{
         $retorna = ['status' => false, 'msg' => "<p style='color: #f00;'>Erro: Usuário não cadastrado com sucesso!</p>"];
     }    
